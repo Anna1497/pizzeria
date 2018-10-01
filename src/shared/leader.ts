@@ -1,10 +1,11 @@
 export interface Leader {
-
     id: number;
-    name: string;
+    name: string; 
     image: string;
-    designation: string;
+    designation:string;
     abbr: string;
     description: string;
     featured: boolean;
+
+
 }
