@@ -20,20 +20,8 @@ export class MenuPage {
   dishes: Dish[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private dishService: DishProvider, @Inject('DbURL') private dbURL) {
-  }{
-
   }
 
-  getProviderDishes(){
-    this.dishService
-    .getDishes()
-    .subscribe(
-      response => {
-        console.log("response");
-        this.dishes= response;
-      }
-    )
-  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
