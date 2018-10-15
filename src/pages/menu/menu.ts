@@ -1,8 +1,8 @@
-..
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DishProvider } from '../../providers/dish/dish';
 import { Dish } from '../../shared/dish';
+import { DishdetailPage } from '../dishdetail/dishdetail';
 
 /**
  * Generated class for the MenuPage page.
@@ -16,7 +16,7 @@ import { Dish } from '../../shared/dish';
   selector: 'page-menu',
   templateUrl: 'menu.html',
 })
-export class MenuPage {
+export class MenuPage implements OnInit{
 
   dishes: Dish[];
 
@@ -25,6 +25,25 @@ export class MenuPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
+  }
+
+  dishDetails(event,dish){
+  this.navCtrl.push(DishdetailPage,{dish: dish});
+  }
+
+  ngOnInit(){
+  this.getDishes();
+  }
+
+  getDishes(){
+  this.dishService.getDishes().subscribe( response =>
+  {
+  console.log(response);
+  this.dishes= response;
+  },
+  error => {
+  console.log(error);
+  } );
   }
 
 }

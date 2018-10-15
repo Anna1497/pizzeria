@@ -1,14 +1,14 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="orangeFour">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>PIZZA</ion-title>
+    <ion-title>Peperami</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="dish">
+  <ion-card *ngIf="dish; else loading">
 		<img src="{{dbURL + dish.image}}" />
 
 		<ion-card-content>
