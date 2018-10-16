@@ -26,23 +26,25 @@
    </p>
    </ion-card-content>
     <ion-row>
+      <ion-col>
      <button ion-button icon-left small clear color="moradito">
-      <ion-item name="star"></ion-item>
+      <ion-icon name="star"></ion-icon>
       <div>{{averageRating}} Stars </div>
      </button>
-   </ion-row>
+   </ion-col>
      
      <ion-col>
     <button ion-button icon-left small clear color ="moradito">
-      <ion-item name="text"></ion-item>
+      <ion-icon name="text"></ion-icon>
       <div>{{numbreComments}} Comments</div>
      </button>
      </ion-col>
+     </ion-row>
 
     <ion-list>
-    	<ion-item *ngFor= "let comment for dish.comments">
+    	<ion-item *ngFor= "let comment of dish.comments">
     	  <p>{{comment.comment}}</p>
-    	  <p>{{commet.rating}} Stars</p>
+    	  <p>{{comment.rating}} Stars</p>
     	  <p>
     	  	<span>
     	  		{{comment.author}} - {{comment.date | date}}
